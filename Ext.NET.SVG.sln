@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ext.NET.SVG", "Ext.NET.SVG\Ext.NET.SVG.csproj", "{F680FF37-881D-4712-85C0-AF0FB9DC0FEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "svg.ext.net", "svg.ext.net\svg.ext.net.csproj", "{4B686E08-6361-424E-A3F2-895DE3BA6EDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F680FF37-881D-4712-85C0-AF0FB9DC0FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F680FF37-881D-4712-85C0-AF0FB9DC0FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F680FF37-881D-4712-85C0-AF0FB9DC0FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F680FF37-881D-4712-85C0-AF0FB9DC0FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B686E08-6361-424E-A3F2-895DE3BA6EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B686E08-6361-424E-A3F2-895DE3BA6EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B686E08-6361-424E-A3F2-895DE3BA6EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B686E08-6361-424E-A3F2-895DE3BA6EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
