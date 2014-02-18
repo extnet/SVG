@@ -11,21 +11,21 @@ namespace Ext.NET.SVG
     /// </summary>
     public static class Exporter
     {
-        public static Bitmap ToBitmap(string svg) 
+        public static void SaveToStream(string svg, Stream stream, ImageFormat format)
         {
             XmlDocument xd = new XmlDocument();
             xd.XmlResolver = null;
             xd.LoadXml(svg);
             SvgDocument svgGraph = SvgDocument.Open(xd);
-            Bitmap image = svgGraph.Draw();
 
-            return image;
-        }
-
-        public static void SaveToStream(string svg, Stream stream, ImageFormat format)
-        {
-            Bitmap image = Exporter.ToBitmap(svg);
-            image.Save(stream, format);
+            using (Bitmap image = svgGraph.Draw())
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    image.Save(ms, format);
+                    ms.WriteTo(stream);
+                }
+            }
         }
 
         public static void SaveToStreamAsPng(string svg, Stream stream)
