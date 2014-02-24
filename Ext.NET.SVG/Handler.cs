@@ -45,10 +45,6 @@ namespace Ext.NET.SVG
             {
                 context.Response.Redirect(string.Format("Help.aspx?errorMessage=An XmlException occured while parsing the submitted SVG string: \"{0}\".", e.Message));
             }
-            catch (NotSupportedException e)
-            {
-                context.Response.Redirect(string.Format("Help.aspx?errorMessage={0}", e.Message));
-            }
             catch (Exception e)
             {
                 context.Response.Redirect(string.Format("Help.aspx?errorMessage={0}", e.Message));
