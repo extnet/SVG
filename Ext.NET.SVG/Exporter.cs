@@ -3,7 +3,6 @@ using System.Drawing.Imaging;
 using System.Xml;
 using Svg;
 using System.IO;
-using ImageMagick;
 
 namespace Ext.NET.SVG
 {
@@ -12,7 +11,7 @@ namespace Ext.NET.SVG
     /// </summary>
     public static class Exporter
     {
-        public static void SaveToStream(string svg, Stream stream, MagickFormat format)
+        public static void SaveToStream(string svg, Stream stream, ImageFormat format)
         {
             XmlDocument xd = new XmlDocument();
             xd.XmlResolver = null;
@@ -20,7 +19,7 @@ namespace Ext.NET.SVG
             SvgDocument svgGraph = SvgDocument.Open(xd);
             Bitmap originalImage = svgGraph.Draw();
 
-            if (format == MagickFormat.Jpeg)
+            if (format == ImageFormat.Jpeg)
             {
                 Bitmap b = new Bitmap(originalImage.Width, originalImage.Height);
                 b.SetResolution(originalImage.HorizontalResolution, originalImage.VerticalResolution);
@@ -33,19 +32,24 @@ namespace Ext.NET.SVG
                 originalImage = b;
             }
 
-            MagickImage mi = new MagickImage(originalImage);
-            mi.Format = format;
-            mi.Write(stream);
+            using (originalImage)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    originalImage.Save(ms, format);
+                    ms.WriteTo(stream);
+                }
+            }
         }
 
         public static void SaveToStreamAsPng(string svg, Stream stream)
         {
-            Exporter.SaveToStream(svg, stream, MagickFormat.Png);
+            Exporter.SaveToStream(svg, stream, ImageFormat.Png);
         }
 
         public static void SaveToStreamAsJpeg(string svg, Stream stream)
         {
-            Exporter.SaveToStream(svg, stream, MagickFormat.Jpeg);
+            Exporter.SaveToStream(svg, stream, ImageFormat.Jpeg);
         }
     }
 }

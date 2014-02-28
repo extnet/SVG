@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Magick.NET-x86">
-      <HintPath>..\packages\Magick.NET-Q16-x86.6.8.8.701\lib\net40-client\Magick.NET-x86.dll</HintPath>
-    </Reference>
     <Reference Include="Svg, Version=1.5.2.33115, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Svg.1.5.2\lib\Svg.dll</HintPath>
